@@ -6,3 +6,4 @@ One line per task. The jury will ask how we used AI, and this is our record. The
 |---|---|---|---|---|
 | 2026-10-11 | captain | Claude Code | Wrote CLAUDE.md (landing rules) and this log from the team plan | |
 | 2026-10-11 | captain | Claude Code | Built landing v1 (index.html, og-image.png): first screen with button, "what do you need" picker, in-app browser hint, team-111 link everywhere | |
+| 2026-10-11 | captain | Claude Code | Rewrote landing claims to match the free plan seen after registering (essay builder, IELTS/SAT prep, admission plan are paid); updated preview image | Registered once via the team link and screenshotted the dashboard |
