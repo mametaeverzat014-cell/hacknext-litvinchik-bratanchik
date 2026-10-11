@@ -2,11 +2,11 @@
 
 Our team's landing page for the Hacknext 2026 hackathon, case "Почему не регистрируются" by Ventorme.
 
-Team number: `team-NNN` (replace NNN once with our number from the official list, 3 digits, e.g. `team-017`).
+Team number: `team-111` (our number from the official list).
 
 ## Hard rules
 
-- Every registration button links to exactly `https://ventorme.ai/register?utm_source=hacknext&utm_campaign=team-NNN`. A wrong number sends our registrations to another team.
+- Every registration button links to exactly `https://ventorme.ai/register?utm_source=hacknext&utm_campaign=team-111`. A wrong number sends our registrations to another team.
 - The page clearly says it is Ventorme. No sign-up form and no contact collection: Ventorme counts registrations by our link.
 - Say only what is true about Ventorme (check ventorme.ai). If unsure, leave a visible `TODO` instead of inventing.
 - This repo is public. Never commit case materials (data tables, the case page, our analysis or presentation): rule 13.5 of the regulations forbids publishing them.

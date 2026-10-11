@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ventorme — пойми, кем стать и куда поступать</title>
+<meta name="description" content="Профтест, подбор вузов, шансы на грант по ЕНТ, подготовка к IELTS и SAT — всё в Ventorme. Начни бесплатно.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ventorme — пойми, кем стать и куда поступать">
+<meta property="og:description" content="Профтест, подбор вузов и шансы на грант по ЕНТ в одном месте. Начни бесплатно.">
+<meta property="og:url" content="https://mametaeverzat014-cell.github.io/hacknext-litvinchik-bratanchik/">
+<meta property="og:image" content="https://mametaeverzat014-cell.github.io/hacknext-litvinchik-bratanchik/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#3b47ff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap">
+<style>
+  /* Цвета и шрифт — близко к самому Ventorme, чтобы было видно, что это он */
+  :root {
+    --blue: #3b47ff;
+    --blue-dark: #2733e6;
+    --ink: #1d2033;
+    --muted: #5b6078;
+    --bg: #f6f7ff;
+    --card: #ffffff;
+    --line: #e3e6f5;
+    --soft: #eef0ff;
+    --lime: #dfff00;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 500 17px/1.55 "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 560px; margin: 0 auto; padding: 0 18px; }
+
+  /* Подсказка для браузера внутри Instagram / TikTok / Facebook */
+  .inapp { display: none; background: #fff6d6; color: #5a4300; font-size: 15px; padding: 12px 18px; border-bottom: 1px solid #f0dd8f; }
+  .inapp.show { display: block; }
+  .inapp b { font-weight: 800; }
+  .inapp a { font-weight: 800; color: #5a4300; }
+
+  /* Первый экран */
+  .hero { background: var(--blue); color: #fff; padding: 18px 0 28px; border-radius: 0 0 28px 28px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 20px; letter-spacing: -0.01em; }
+  .brand svg { width: 30px; height: 30px; }
+  .brand small { font-weight: 500; font-size: 13px; opacity: 0.8; margin-left: auto; }
+  h1 { font-size: 31px; line-height: 1.12; font-weight: 800; letter-spacing: -0.02em; margin: 22px 0 10px; }
+  h1 span { color: var(--lime); }
+  .lead { margin: 0 0 20px; font-size: 17px; color: rgba(255, 255, 255, 0.9); }
+  .btn {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 56px; padding: 0 22px; border-radius: 16px;
+    font-weight: 800; font-size: 18px; text-decoration: none;
+  }
+  .btn-white { background: #fff; color: var(--blue-dark); }
+  .btn-blue { background: var(--blue); color: #fff; }
+  .btn:active { transform: scale(0.98); }
+  .note { margin: 10px 0 0; font-size: 14px; color: rgba(255, 255, 255, 0.85); text-align: center; }
+
+  section { padding: 30px 0 0; }
+  h2 { font-size: 23px; line-height: 1.2; font-weight: 800; letter-spacing: -0.01em; margin: 0 0 14px; }
+
+  /* Выбор: что нужно сейчас */
+  .picker { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .pick {
+    font: inherit; font-size: 16px; font-weight: 700; text-align: left;
+    min-height: 64px; padding: 12px 14px; border-radius: 16px;
+    border: 2px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer;
+  }
+  .pick[aria-pressed="true"] { border-color: var(--blue); background: var(--soft); }
+  .answer { margin-top: 12px; background: var(--card); border: 2px solid var(--blue); border-radius: 18px; padding: 16px; }
+  .answer p { margin: 0 0 14px; }
+  .answer[hidden] { display: none; }
+
+  /* Карточки «что получишь» */
+  .list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .list li { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; }
+  .list b { display: block; font-weight: 800; }
+  .list span { color: var(--muted); font-size: 15px; }
+
+  /* Шаги */
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; counter-reset: s; }
+  .steps li { display: grid; grid-template-columns: 36px 1fr; gap: 12px; align-items: start; }
+  .steps li::before {
+    counter-increment: s; content: counter(s);
+    width: 36px; height: 36px; border-radius: 50%; background: var(--blue); color: #fff;
+    display: grid; place-items: center; font-weight: 800;
+  }
+  .steps b { font-weight: 800; }
+  .steps p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  /* Вопросы */
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; margin-bottom: 10px; }
+  summary { font-weight: 800; cursor: pointer; }
+  details p { margin: 8px 0 0; color: var(--muted); font-size: 15px; }
+
+  .final { margin: 30px 0 0; background: var(--ink); color: #fff; border-radius: 24px; padding: 22px 18px; }
+  .final h2 { color: #fff; }
+  .final p { margin: 0 0 16px; color: rgba(255, 255, 255, 0.8); }
+
+  footer { padding: 24px 0 110px; font-size: 13px; color: var(--muted); }
+
+  /* Кнопка снизу, появляется после прокрутки первого экрана */
+  .sticky {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
+    padding: 10px 18px calc(10px + env(safe-area-inset-bottom, 0px));
+    background: rgba(246, 247, 255, 0.94); border-top: 1px solid var(--line);
+    transform: translateY(110%); transition: transform 0.2s ease;
+  }
+  .sticky.show { transform: none; }
+  .sticky .btn { max-width: 524px; margin: 0 auto; }
+
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--lime); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { .sticky { transition: none; } }
+  @media (min-width: 700px) { h1 { font-size: 40px; } .hero { padding-top: 26px; } }
+</style>
+</head>
+<body>
+
+<!-- Показывается только внутри Instagram / Facebook / TikTok: там вход через Google часто не работает -->
+<div class="inapp" id="inapp" role="note">
+  Ты открыл ссылку внутри приложения — тут <b>вход через Google</b> может не сработать.
+  <span id="inappHow">Нажми <b>⋯</b> вверху → <b>«Открыть в браузере»</b>.</span>
+  Или регистрируйся по почте — это тоже работает.
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#fff"/><path d="M8 9l8 15 8-15" fill="none" stroke="#3b47ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Ventorme
+      <small>профориентация и поступление</small>
+    </div>
+    <h1>Пойми, <span>кем стать</span> и куда поступать</h1>
+    <p class="lead">Профтест, подбор вузов и шансы на грант по ЕНТ — в одном месте.</p>
+    <a class="btn btn-white js-reg" href="https://ventorme.ai/register?utm_source=hacknext&amp;utm_campaign=team-111">Начать бесплатно →</a>
+    <p class="note">Вход через Google или по почте · после регистрации ответь на пару вопросов</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section aria-labelledby="pick-h">
+    <h2 id="pick-h">Что тебе нужно сейчас?</h2>
+    <div class="picker" role="group" aria-label="Выбери, что нужно">
+      <button class="pick" type="button" aria-pressed="false" data-a="a1">🎯 Выбрать профессию</button>
+      <button class="pick" type="button" aria-pressed="false" data-a="a2">🏛 Подобрать вуз</button>
+      <button class="pick" type="button" aria-pressed="false" data-a="a3">📊 Шансы на грант по ЕНТ</button>
+      <button class="pick" type="button" aria-pressed="false" data-a="a4">🌍 IELTS и SAT</button>
+    </div>
+    <div class="answer" id="a1" hidden><p><b>Профтест</b> покажет, какие профессии тебе подходят. Не знаешь, кем быть — начни с него.</p><a class="btn btn-blue js-reg" href="https://ventorme.ai/register?utm_source=hacknext&amp;utm_campaign=team-111">Пройти профтест</a></div>
+    <div class="answer" id="a2" hidden><p><b>Подбор вузов</b> поможет найти университеты под твою профессию и твои баллы.</p><a class="btn btn-blue js-reg" href="https://ventorme.ai/register?utm_source=hacknext&amp;utm_campaign=team-111">Подобрать вуз</a></div>
+    <div class="answer" id="a3" hidden><p><b>Калькулятор гранта по ЕНТ</b> прикинет твои шансы на грант.</p><a class="btn btn-blue js-reg" href="https://ventorme.ai/register?utm_source=hacknext&amp;utm_campaign=team-111">Узнать шансы</a></div>
+    <div class="answer" id="a4" hidden><p><b>Подготовка к IELTS и SAT</b> — если хочешь учиться за границей. Плюс помощь с мотивационным эссе.</p><a class="btn btn-blue js-reg" href="https://ventorme.ai/register?utm_source=hacknext&amp;utm_campaign=team-111">Начать подготовку</a></div>
+  </section>
+
+  <section aria-labelledby="get-h">
+    <h2 id="get-h">Что ты получишь после регистрации</h2>
+    <ul class="list">
+      <li><b>Профтест</b><span>Какие профессии подходят именно тебе</span></li>
+      <li><b>Подбор вузов</b><span>Куда поступать с твоей профессией</span></li>
+      <li><b>Калькулятор гранта по ЕНТ</b><span>Хватит ли баллов на грант</span></li>
+      <li><b>IELTS и SAT, помощь с эссе</b><span>Для поступления за границу</span></li>
+      <li><b>ИИ-помощник Venti</b><span>Можно задать любой вопрос про поступление</span></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="how-h">
+    <h2 id="how-h">Как это работает</h2>
+    <ol class="steps">
+      <li><div><b>Регистрируешься</b><p>Через Google в одно касание или по почте.</p></div></li>
+      <li><div><b>Отвечаешь на несколько вопросов</b><p>Это займёт пару минут — по ответам Ventorme соберёт твой план.</p></div></li>
+      <li><div><b>Получаешь результаты</b><p>Профессии, вузы и шансы на грант — в личном кабинете.</p></div></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="faq-h">
+    <h2 id="faq-h">Частые вопросы</h2>
+    <details><summary>Это бесплатно?</summary><p>Начать можно бесплатно. Есть и платный тариф с дополнительными возможностями — покупать его не обязательно.</p></details>
+    <details><summary>Для кого это?</summary><p>Для школьников, которые выбирают профессию и вуз — в Казахстане или за границей.</p></details>
+    <details><summary>Что если я уже знаю, куда поступать?</summary><p>Тогда пригодятся подбор вузов и калькулятор гранта по ЕНТ: проверь, хватает ли баллов и какие есть варианты.</p></details>
+  </section>
+
+  <div class="final">
+    <h2>Займёт пару минут</h2>
+    <p>Зарегистрируйся и ответь на вопросы — получишь свой план поступления.</p>
+    <a class="btn btn-white js-reg" href="https://ventorme.ai/register?utm_source=hacknext&amp;utm_campaign=team-111">Начать бесплатно →</a>
+  </div>
+
+  <footer>
+    Эту страницу сделала команда хакатона Hacknext 2026 про платформу Ventorme. Регистрация проходит на официальном сайте ventorme.ai.
+  </footer>
+</main>
+
+<div class="sticky" id="sticky">
+  <a class="btn btn-blue js-reg" href="https://ventorme.ai/register?utm_source=hacknext&amp;utm_campaign=team-111">Начать бесплатно →</a>
+</div>
+
+<script>
+  // Ссылка команды. Все кнопки регистрации ведут сюда.
+  var TEAM_LINK = 'https://ventorme.ai/register?utm_source=hacknext&utm_campaign=team-111';
+
+  // 1. Выбор «что нужно сейчас»: показываем ответ под нажатой кнопкой
+  var picks = document.querySelectorAll('.pick');
+  picks.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      picks.forEach(function (b) {
+        b.setAttribute('aria-pressed', 'false');
+        document.getElementById(b.dataset.a).hidden = true;
+      });
+      btn.setAttribute('aria-pressed', 'true');
+      document.getElementById(btn.dataset.a).hidden = false;
+    });
+  });
+
+  // 2. Браузер внутри Instagram / Facebook / TikTok — показываем подсказку
+  var ua = navigator.userAgent || '';
+  if (/Instagram|FBAN|FBAV|FB_IAB|musical_ly|BytedanceWebview|TikTok/i.test(ua)) {
+    document.getElementById('inapp').classList.add('show');
+    // На Android можно сразу открыть Chrome с нашей ссылкой
+    if (/Android/i.test(ua)) {
+      document.getElementById('inappHow').innerHTML =
+        '<a href="intent://ventorme.ai/register?utm_source=hacknext&utm_campaign=team-111#Intent;scheme=https;package=com.android.chrome;end">Открыть в Chrome →</a>';
+    }
+  }
+
+  // 3. Нижняя кнопка появляется, когда первый экран ушёл вверх
+  var hero = document.querySelector('.hero');
+  var sticky = document.getElementById('sticky');
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (e) {
+      sticky.classList.toggle('show', !e[0].isIntersecting);
+    }).observe(hero);
+  }
+</script>
+</body>
+</html>
